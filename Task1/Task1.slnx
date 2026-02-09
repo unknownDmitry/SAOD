@@ -1,0 +1,13 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Graph/Graph.pyproj" Type="888888a0-9f3d-457c-b088-3a5042f75d52" Id="c09ac58d-d422-43f9-874b-66eec439d806">
+    <Platform Project="AnyCPU" />
+    <Build Project="false" />
+  </Project>
+  <Project Path="Task1/Task1.vcxproj" Id="e6ffb49f-0200-4ce8-8686-bd8212499bd2" />
+  <Project Path="Tests/Tests.vcxproj" Id="3d995ff8-8b5f-44d1-b69e-8ce6aac813a5" />
+</Solution>
