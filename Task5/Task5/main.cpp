@@ -1,59 +1,30 @@
-#include <iostream>
-#include <fstream>
+//Савин Дмитрий, ИВТ-22
 
-const int MAX = 31;
+#include "functions.h"
 
-void pascal_comp(int arr[MAX][MAX], int N) {
-
-	for (int i = 0; i < N; i++) {
-		arr[i][0] = 1;
-	}
-
-	for (int i = 0; i < N; i++) {
-		for (int j = 1; j <= i; j++) {
-			arr[i][j] = (arr[i-1][j]) + (arr[i-1][j-1]);
-		}
-	}
-
-	for (int i = 0; i < N; i++) {
-		for (int j = 0; j <= i; j++) {
-			std::cout << arr[i][j] << " ";
-		}
-		std::cout << std::endl;
-	}
-}
-
-void save_to_file(int arr[MAX][MAX], int N, std::string& path) {
-	std::ofstream out(path);
-
-	for (int i = 0; i < N; i++) {
-		for (int j = 0; j <= i; j++) {
-			out << arr[i][j] << " ";
-		}
-		out << std::endl;
-	}
-
-	out.close();
-}
-
-int read_from_file(std::string& path) {
-	std::ifstream in(path);
-	int size;
-	in >> size;
-	return size;
-}
+/*
+Треугольник Паскаля строится следующим образом. Первая строка состоит из одного числа,
+равного единице. Каждая следующая содержит на одно число больше, чем предыдущая.
+Первое и последнее из этих чисел равны 1, а все остальные вычисляются как сумма числа,
+стоящего в предыдущей строке над ним и числа, стоящего в предыдущей же строке слева от него.
+Входные данные. В файле INPUT.TXT записано одно число N (0<=N<=30).
+Выходные данные. В файл OUTPUT.TXT вывести N строк треугольника Паскаля.
+Примечание. Все числа в треугольнике Паскаля при указанных ограничениях входят в Longint.
+*/
 
 int main() {
 
 	std::string path_in = "INPUT.txt";
 	std::string path_out = "OUTPUT.txt";
-	int N = read_from_file(path_in);
+	int SIZE = read_from_file(path_in);
 
-	int arr[MAX][MAX] = {};
+	int arr[MAX_SIZE][MAX_SIZE] = {};
 
-	pascal_comp(arr, N);
+	comp_pascal(arr, SIZE);
 
-	save_to_file(arr, N, path_out);
+	print_array(arr, SIZE);
+
+	save_to_file(arr, SIZE, path_out);
 
 	return 0;
 }
