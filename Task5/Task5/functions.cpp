@@ -1,6 +1,6 @@
 #include "functions.h"
 
-//Вычисление значений треугольника Паскаля
+//Вычисление значений треугольника Паскаля снизу вверх
 void comp_pascal(int arr[MAX_SIZE][MAX_SIZE], int SIZE) {
 	for (int i = 0; i < SIZE; i++) {
 		arr[i][0] = 1;	//	левый край
