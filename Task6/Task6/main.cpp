@@ -1,58 +1,27 @@
 //Савин Дмитрий, ИВТ-22
 
 #include <iostream>
-
-template<typename T>
-class VECTOR {
-
-private:
-
-	T* data;
-	size_t size;
-	size_t capacity;
-
-	void resize(size_t new_capacity) {
-		T* new_data = new T[new_capacity];
-		for (size_t i = 0; i < size; i++) {
-			new_data[i] = data[i];
-		}
-		delete[] data;
-		data = new_data;
-		capacity = new_capacity;
-	}
-
-public:
-
-	VECTOR() {
-		this->data = nullptr;
-		this->size = 0;
-		this->capacity = 0;
-	};
-
-	~VECTOR() {
-		delete[] data;
-	}
-
-	void push_back(const T& value){
-		if(size == capacity){
-			size_t new_capacity = (capacity == 0) ? 1 : capacity * 2;
-			resize(new_capacity);
-		}
-		data[size] = value;
-		size++;
-	}
-
-	void pop_back(){
-		if(size > 0){
-			size--;
-		}
-	}
-
-};
+#include "VECTOR.h"
 
 int main() {
 
+	VECTOR<int> vect;
+	vect.push_back(5);
+	vect.push_back(2);
+	vect.push_back(8);
+	vect.push_back(1);
+	vect.push_back(9);
+	vect.push_back(3);
 
+	std::cout << "До сортировки: ";
+	vect.print();
+	std::cout << std::endl;
+
+	vect.bubble_sort();
+
+	std::cout << "После сортировки: ";
+	vect.print();
+	std::cout << std::endl;
 
 	return 0;
 }

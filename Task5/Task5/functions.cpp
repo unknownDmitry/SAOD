@@ -1,6 +1,6 @@
 #include "functions.h"
 
-//Вычисление значений треугольника Паскаля снизу вверх
+//  Вычисление значений треугольника Паскаля снизу вверх
 void comp_pascal(int arr[MAX_SIZE][MAX_SIZE], int SIZE) {
 	for (int i = 0; i < SIZE; i++) {
 		arr[i][0] = 1;	//	левый край
@@ -11,7 +11,7 @@ void comp_pascal(int arr[MAX_SIZE][MAX_SIZE], int SIZE) {
 	}
 }
 
-//Вывод треугольника Паскаля в консоль
+//  Вывод треугольника Паскаля в консоль
 void print_array(int arr[MAX_SIZE][MAX_SIZE], int SIZE) {
 	for (int i = 0; i < SIZE; i++) {
 		for (int j = 0; j <= i; j++) {
@@ -21,7 +21,7 @@ void print_array(int arr[MAX_SIZE][MAX_SIZE], int SIZE) {
 	}
 }
 
-//Сохранение треугольника Паскаля в файл
+//  Сохранение треугольника Паскаля в файл
 void save_to_file(int arr[MAX_SIZE][MAX_SIZE], int SIZE, std::string& path) {
 	std::ofstream out(path);
 
@@ -35,7 +35,7 @@ void save_to_file(int arr[MAX_SIZE][MAX_SIZE], int SIZE, std::string& path) {
 	out.close();
 }
 
-//Чтение размера массива из файла для треугольника Паскаля
+//  Чтение размера массива из файла для треугольника Паскаля
 int read_from_file(std::string& path) {
 	std::ifstream in(path);
 	int size;
