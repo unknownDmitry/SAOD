@@ -5,10 +5,18 @@
 
 int main()
 {
-    // Запускаем тесты стека (assert завершит программу при неуспехе)
-    test_stack();
+   test_stack();
 
-    std::cout << "All Stack tests passed!" << std::endl;
+   Stack<int> st;
 
-    return 0;
+   st.push(10);
+   st.push(20);
+   st.push(30);
+
+   std::cout << st.top() << std::endl; // 30
+
+   st.pop();
+
+   std::cout << st.top() << std::endl; // 20
+
 }
